@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <!--bean 是要给实体类的只检测到实体类的set方法set赋值  依赖注入的-->
+   <bean id="service" class="cn.happy.day.service.HappySpring">
+          <property name="info" value="小红"></property>
+          <property name="age" value="12"></property>
+    </bean>
+
+    <!--墨盒-->
+    <bean id="ink" class="cn.happy.day02.ink.ColorInk"></bean>
+    <!--纸张-->
+    <bean id="paper" class="cn.happy.day02.paper.A4Paper"></bean>
+    <!--打印机-->
+    <bean id="print" class="cn.happy.day02.printer.Print">
+       <property name="ink" ref="ink"></property>
+        <property name="paper" ref="paper"></property>
+    </bean>
+
+</beans>
